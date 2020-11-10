@@ -182,27 +182,23 @@ def main():
 			patient_gender = tokens[45].strip()
 
 			if patient_id != '-99999999' and patient_gender == gender:
-
+				
 				if patient_id not in map_patient_id_to_unique_diag_codes:
 					map_patient_id_to_unique_diag_codes[patient_id] = []
 				if patient_id not in map_patient_id_to_unique_proc_codes:
 					map_patient_id_to_unique_proc_codes[patient_id] = []
-
-
+				
 				diag_codes = tokens[5:30]
 				for code in diag_codes:
 					curr_diag_code = code.strip()
 					if curr_diag_code.lower() != '\\n':
-
 						if curr_diag_code not in map_patient_id_to_unique_diag_codes[patient_id]:
 							map_patient_id_to_unique_diag_codes[patient_id].append(curr_diag_code)
-
-
+				
 				proc_codes = tokens[30:45]
 				for code in proc_codes:
 					curr_proc_code = code.strip()
 					if curr_proc_code.lower() != '\\n':
-
 						if curr_proc_code not in map_patient_id_to_unique_proc_codes[patient_id]:
 							map_patient_id_to_unique_proc_codes[patient_id].append(curr_proc_code)
 	
